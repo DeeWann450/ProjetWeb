@@ -11,7 +11,7 @@ export class BirthRennesComponent implements OnInit {
   births;
 
   constructor(
-    private birthService: BirthService
+    private birthService: BirthService,
     ) { }
 
   ngOnInit(): void {
