@@ -1,4 +1,15 @@
 <div>
    <h3>Test API</h3>
-   <p *ngIf="births">{{ births.nhits }}</p>
- </div>
+   <div *ngIf="births" class="row">
+      <div class="col-sm-3" *ngFor="let year of births.records">
+         <div class="card">
+            <a> 
+               <b>année : </b>
+               {{year.fields.annee}}
+               <b>garçon : </b>
+               {{year.fields.garcons}}
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
