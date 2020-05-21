@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-my-bar-chart',
@@ -7,24 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyBarChartComponent implements OnInit {
 
+  births;
+
+  private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&rows=10&sort=annee&facet=annee&facet=garcons';
+
   public barChartOptions = { 
     scaleShowVerticalLines : false,
     responsive : true
   };
 
-  public barChartLabels = ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020']
+  public barChartLabels = [];
   public barChartType = 'bar';
   public barChartLegend=true;
 
   public barChartData=[
-    {data : [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020], label : 'Test A'},
-    {data : [2020,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020], label : 'Test B'},
-    {data : [2030,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020], label : 'Test C'},
-
+    {data : [], label : 'Filles'},
+    {data : [], label : 'Garcons'},
   ];
 
-  constructor() { 
-    
+  constructor(private http: HttpClient) {    
+    this.http.get(this.apiURL).toPromise().then(info => {
+      console.log(info);
+      this.births = info;
+      //console.log(this.births.records.length);
+      for(var counter:number = 0; counter<this.births.records.length; counter++){
+        this.barChartLabels.push(this.births.records[counter].fields.annee);
+        this.barChartData[0].data.push(this.births.records[counter].fields.filles);
+        this.barChartData[1].data.push(this.births.records[counter].fields.garcons);
+
+        //console.log(this.barChartData[0]);
+      }
+    })
   }
 
   ngOnInit(): void {
