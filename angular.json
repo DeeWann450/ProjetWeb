@@ -27,7 +27,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,7 +94,8 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           }
         },
         "lint": {
