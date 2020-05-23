@@ -3,7 +3,6 @@
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
- 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
          <li class="nav-item active">
@@ -16,15 +15,11 @@
             <a class="nav-link" href="#">Aide</a>
          </li>
      </ul>
-      <form class="form-inline my-2 my-lg-0" [formGroup]="searchForm">
-         <input class="form-control mr-sm-2" placeholder="Année" #inputYear id="inputYear" formControlName="inputYear" required>
-         <div *ngIf="inputYear.invalid && (inputYear.dirty || inputYear.touched)"
-         class="alert alert-danger">
-            <div *ngIf="inputYear.errors.required">
-               Name is required.
-            </div>
-         </div>
-
+      <form class="form-inline" [formGroup]="searchForm">
+         <small id="helpYear" class="text-muted" *ngIf="searchForm.get('inputYear').errors.min || searchForm.get('inputYear').errors.max">
+            Année entre 1986 et 2019 &nbsp;&nbsp;   
+         </small>
+         <input class="form-control mr-sm-2" placeholder="Année" #inputYear id="inputYear" formControlName="inputYear" >
          <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="onClickMe(inputYear.value)" routerLink="/birth-rennes">Search</button>
       </form>
    </div>
