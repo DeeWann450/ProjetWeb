@@ -11,7 +11,7 @@ export class MyBarChartComponent implements OnInit {
 
   births;
 
-  private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&rows=37&sort=annee'
+  private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&rows=37&sort=annee' 
 
   public barChartOptions = { 
     scaleShowVerticalLines : false,
@@ -19,11 +19,11 @@ export class MyBarChartComponent implements OnInit {
   };
 
 
-  public barChartLabels = [];
-  public barChartLabelsTotal = [];
+  public barChartLabels = [];   //Instanciation de la variable barChartLabels qui correspond aux différents label du graphique
+  public barChartLabelsTotal = []; // Instanciation de la variable barChartLabelsTotal qui correspond aux différents label du graphique pour le graph total
 
-  public barChartType = 'bar';
-  public barChartLegend=true;
+  public barChartType = 'bar'; //Instanciation de la variable barCharType qui correspond au type de graph et qui ici est commun au deux graphs
+  public barChartLegend=true; //Instanciation de la variable barChartLabels qui correspond à l'affichage de la légende 
 
   public barChartData=[
     {data : [], label : 'Filles', dataset: [], backgroundColor:"#f9ba32",hoverBackgroundColor:'#FFE3A7'},
@@ -39,14 +39,12 @@ export class MyBarChartComponent implements OnInit {
       console.log(info);
       this.births = info;
       //console.log(this.births.records.length);
-      for(var counter:number = 0; counter<this.births.records.length; counter++){
-        this.barChartLabels.unshift(this.births.records[counter].fields.annee);
-        this.barChartData[0].data.unshift(this.births.records[counter].fields.filles);
-        this.barChartData[1].data.unshift(this.births.records[counter].fields.garcons);
-        this.barChartLabelsTotal.unshift(this.births.records[counter].fields.annee);
-        this.barChartDataTotal[0].data.unshift(this.births.records[counter].fields.filles+this.births.records[counter].fields.garcons);
-
-        //console.log(this.barChartData[0]);
+      for(var counter:number = 0; counter<this.births.records.length; counter++){ //On parcourt autant de fois qu'il y a d'années
+        this.barChartLabels.unshift(this.births.records[counter].fields.annee); //On rajoute une colonne pour chaque année
+        this.barChartData[0].data.unshift(this.births.records[counter].fields.filles); //On rajoute la donnée du nombre de filles dans l'année correspondante 
+        this.barChartData[1].data.unshift(this.births.records[counter].fields.garcons); //On rajoute la donnée du nombre de garcons dans l'année correspondante 
+        this.barChartLabelsTotal.unshift(this.births.records[counter].fields.annee); //On rajoute une colonne pour chaque année dans le second graphique
+        this.barChartDataTotal[0].data.unshift(this.births.records[counter].fields.filles+this.births.records[counter].fields.garcons); //On rajoute la donnée du nombre de naissances dans l'année correspondante 
       }
     })
   }
