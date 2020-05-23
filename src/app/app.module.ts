@@ -12,6 +12,13 @@ import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { HelpComponent } from './help/help.component';
+import { Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: 'contact', component : NavbarComponent},
+  {path: 'aide', component : NavbarComponent},
+  {path: '', component : NavbarComponent}
+];
 
 @NgModule({
   declarations: [
