@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BirthRennesComponent } from './birth-rennes/birth-rennes.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InputYearService } from '../input-year.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,10 @@ import { InputYearService } from '../input-year.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  searchForm = new FormGroup({
+    inputYear: new FormControl('')
+  })
 
   constructor(private inputYearService:InputYearService) { 
   }
@@ -16,5 +21,9 @@ export class NavbarComponent implements OnInit {
 
   onClickMe(value) {
     this.inputYearService.inputYear = value;
+  }
+  
+  get inputYear() {
+    return this.searchForm.get('inputYear');
   }
 }
