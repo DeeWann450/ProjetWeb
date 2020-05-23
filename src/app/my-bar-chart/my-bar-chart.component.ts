@@ -26,12 +26,12 @@ export class MyBarChartComponent implements OnInit {
   public barChartLegend=true;
 
   public barChartData=[
-    {data : [], label : 'Filles', dataset: [], backgroundColor:"Green",hoverBackgroundColor:"Green"},
-    {data : [], label : 'Garcons', dataset: [], backgroundColor:"Blue", hoverBackgroundColor: "Blue" },
+    {data : [], label : 'Filles', dataset: [], backgroundColor:"#f9ba32",hoverBackgroundColor:'#FFE3A7'},
+    {data : [], label : 'Garcons', dataset: [], backgroundColor:"#426E86", hoverBackgroundColor: "#8EB9D0" },
   ];
 
   public barChartDataTotal=[
-    {data : [], label : 'Nombre de naissances' , dataset: [], backgroundColor:"black", hoverBackgroundColor:"black"} 
+    {data : [], label : 'Nombre de naissances' , dataset: [], backgroundColor:"#1A008E", hoverBackgroundColor:"#2E00FE"} 
   ];
 
   constructor(private http: HttpClient) {    

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
    <a class="navbar-brand" href="#">Naissances</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
@@ -6,23 +6,26 @@
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
          <li class="nav-item active">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link" routerLink="">Graphiques <span class="sr-only">(current)</span></a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" routerLink="/data-table">Tableaux</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" routerLink="/contact">Contact</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#">Aide</a>
+            <a class="nav-link" routerLink="/help">Aide</a>
          </li>
      </ul>
       <form class="form-inline" [formGroup]="searchForm">
          <div *ngIf="searchForm.get('inputYear').invalid && (searchForm.get('inputYear').dirty || searchForm.get('inputYear').touched)">
-            <small id="helpYear" class="text-muted" *ngIf="searchForm.get('inputYear').errors.min || searchForm.get('inputYear').errors.max">
+            <small id="helpYear" class="text-light" *ngIf="searchForm.get('inputYear').errors.min || searchForm.get('inputYear').errors.max">
                Année entre 1986 et 2019 &nbsp;&nbsp;   
             </small>
          </div>
          <input class="form-control mr-sm-2" placeholder="Année" #inputYear id="inputYear" formControlName="inputYear" >
-         <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="onClickMe(inputYear.value)" routerLink="/birth-rennes">Search</button>
+         <button class="btn my-2 my-sm-0 btn-info btn-outline-light" type="button" (click)="onClickMe(inputYear.value)" routerLink="/birth-rennes">Search</button>
       </form>
    </div>
  </nav>

@@ -17,6 +17,8 @@ export class BirthRennesComponent implements OnInit {
 
   births;
 
+
+
   private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&refine.annee='
 
   constructor(private http: HttpClient, private inputYearSerice:InputYearService, private router: Router) {    

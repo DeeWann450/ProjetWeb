@@ -1,53 +1,48 @@
-<div *ngIf="births" class="rows">
-   <button class="close" type="button" routerLink="" aria-label="Close">X</button>
-   <div *ngFor="let n of births.records">
-      <table class="table table-hover">
+<div *ngIf="births">
+   <div>
+      <table class="table table-hover table-responsive">
          <thead>
            <tr>
              <th scope="col">Année</th>
-             <th scope="col">{{n.fields.annee}}</th>
+             <th scope="col" *ngFor="let n of births.records">{{n.fields.annee}}</th>
            </tr>
          </thead>
          <tbody>
            <tr>
-             <th scope="row">Total</th>
-             <td>{{total}}</td>
-           </tr>
-           <tr>
              <th scope="row">Garçons</th>
-             <td>{{n.fields.garcons}}</td>
+             <td *ngFor="let n of births.records">{{n.fields.garcons}}</td>
            </tr>
            <tr>
             <th scope="row">Filles</th>
-            <td>{{n.fields.filles}}</td>
+            <td *ngFor="let n of births.records">{{n.fields.filles}}</td>
           </tr>
             <tr>
                <th scope="row">Indeterminés</th>
-               <td>{{n.fields.indetermine}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.indetermine}}</td>
             </tr>
             <tr>
                <th scope="row">Né à l'hopital</th>
-               <td>{{n.fields.lieu_hopital}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.lieu_hopital}}</td>
             </tr>
             <tr>
                <th scope="row">Né en clinique</th>
-               <td>{{n.fields.lieu_clinique}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.lieu_clinique}}</td>
             </tr>
             <tr>
                <th scope="row">Né à domicile</th>
-               <td>{{n.fields.lieu_domicile}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.lieu_domicile}}</td>
             </tr>
             <tr>
                <th scope="row">Né autre part</th>
-               <td>{{n.fields.lieu_autres}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.lieu_autres}}</td>
             </tr>
             <tr>
                <th scope="row">Domicilié à Rennes même</th>
-               <td>{{n.fields.dp_rennes}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.dp_rennes}}</td>
             </tr>
             <tr>
                <th scope="row">Domicilié autre part</th>
-               <td>{{n.fields.dp_exterieur}}</td>
+               <td *ngFor="let n of births.records">{{n.fields.dp_exterieur}}</td>
             </tr>
          </tbody>
        </table>

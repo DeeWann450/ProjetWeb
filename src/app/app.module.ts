@@ -12,13 +12,7 @@ import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { HelpComponent } from './help/help.component';
-import { Routes } from '@angular/router';
-
-const appRoutes: Routes = [
-  {path: 'contact', component : NavbarComponent},
-  {path: 'aide', component : NavbarComponent},
-  {path: '', component : NavbarComponent}
-];
+import { DataTableComponent } from './data-table/data-table.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +21,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     MyBarChartComponent,
     ContactComponent,
-    HelpComponent
+    HelpComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
