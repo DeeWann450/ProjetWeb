@@ -1,17 +1,24 @@
-<div>
-   <h3>Test API</h3>
-   <div *ngIf="births" class="row">
-      <div class="col-sm-3" *ngFor="let year of births.records">
-         <div class="card">
-            <a> 
-               <b>année : </b>
-               {{year.fields.annee}}
-               <b>garçon : </b>
-               {{year.fields.garcons}}
-               <b>fille :</b>
-               {{year.fields.filles}}
-            </a>
-         </div>
-      </div>
+<div *ngIf="births" class="rows">
+   <button class="close" type="button" routerLink="" aria-label="Close">X</button>
+   <h3>Année : {{births.records[0].fields.annee}}</h3>
+   <div *ngFor="let year of births.records">
+      <table class="table" *ngFor="let year of births.records">
+         <thead>
+           <tr>
+             <th scope="col">Année</th>
+             <th scope="col">Total</th>
+             <th scope="col">Garçons</th>
+             <th scope="col">Filles</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <th scope="row">{{year.fields.annee}}</th>
+             <td>{{total}}</td>
+             <td>{{year.fields.garcons}}</td>
+             <td>{{year.fields.filles}}</td>
+           </tr>
+         </tbody>
+       </table>
    </div>
 </div>

@@ -8,7 +8,6 @@ import { InputYearService } from '../input-year.service';
 })
 export class NavbarComponent implements OnInit {
 
-
   constructor(private inputYearService:InputYearService) { 
   }
 
