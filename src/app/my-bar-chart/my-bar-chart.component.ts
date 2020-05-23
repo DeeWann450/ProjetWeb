@@ -12,18 +12,26 @@ export class MyBarChartComponent implements OnInit {
   births;
 
   private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&rows=37&sort=annee'
+
   public barChartOptions = { 
     scaleShowVerticalLines : false,
     responsive : true
   };
 
+
   public barChartLabels = [];
+  public barChartLabelsTotal = [];
+
   public barChartType = 'bar';
   public barChartLegend=true;
 
   public barChartData=[
-    {data : [], label : 'Filles'},
-    {data : [], label : 'Garcons'},
+    {data : [], label : 'Filles', dataset: [], backgroundColor:"Green",hoverBackgroundColor:"Green"},
+    {data : [], label : 'Garcons', dataset: [], backgroundColor:"Blue", hoverBackgroundColor: "Blue" },
+  ];
+
+  public barChartDataTotal=[
+    {data : [], label : 'Nombre de naissances' , dataset: [], backgroundColor:"black", hoverBackgroundColor:"black"} 
   ];
 
   constructor(private http: HttpClient) {    
@@ -35,6 +43,8 @@ export class MyBarChartComponent implements OnInit {
         this.barChartLabels.unshift(this.births.records[counter].fields.annee);
         this.barChartData[0].data.unshift(this.births.records[counter].fields.filles);
         this.barChartData[1].data.unshift(this.births.records[counter].fields.garcons);
+        this.barChartLabelsTotal.unshift(this.births.records[counter].fields.annee);
+        this.barChartDataTotal[0].data.unshift(this.births.records[counter].fields.filles+this.births.records[counter].fields.garcons);
 
         //console.log(this.barChartData[0]);
       }
