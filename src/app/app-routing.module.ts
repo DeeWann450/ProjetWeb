@@ -5,9 +5,7 @@ import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent},
-  { path: 'birth-rennes', component: BirthRennesComponent},
-  { path: 'bar-chart', component: MyBarChartComponent}
+  { path: 'birth-rennes', component: BirthRennesComponent}
 ];
 
 @NgModule({

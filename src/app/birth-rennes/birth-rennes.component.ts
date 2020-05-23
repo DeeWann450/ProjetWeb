@@ -11,14 +11,22 @@ export class BirthRennesComponent implements OnInit {
 
   births;
 
-  private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&rows=10&sort=annee&facet=annee&facet=garcons'
+  private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q='
 
   constructor(private http: HttpClient, private inputYearSerice:InputYearService) {    
     var value = this.inputYearSerice.inputYear;
-    this.http.get(this.apiURL).toPromise().then(data => {
-      console.log(data);
-      this.births = data;
-    })
+    if(typeof value !== 'undefined') {
+      this.http.get(this.apiURL + value).toPromise().then(data => {
+        console.log(data);
+        this.births = data;
+      })
+    }
+    else {
+      this.http.get(this.apiURL + "1999").toPromise().then(data => {
+        console.log(data);
+        this.births = data;
+      })
+    }
   }
 
   ngOnInit(): void {
