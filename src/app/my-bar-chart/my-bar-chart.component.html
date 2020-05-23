@@ -1,5 +1,6 @@
+<! -- Création du graphique et de ses paramètres -->
  <div>
-    <div style="display: block">
+    <div style="display: block"> 
      <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
@@ -8,14 +9,15 @@
             [chartType]="barChartType"></canvas>
     </div>
 </div>
-
+<! -- Création du graphique et de ses paramètres -->
 <div>
     <div style="display: block">
      <canvas baseChart
             [datasets]="barChartDataTotal"
             [labels]="barChartLabelsTotal"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
+            [options]="barChartOptions" 
+            [legend]="barChartLegend"   
             [chartType]="barChartType"></canvas>
+            <! -- On garde les mêmes options de légende entre les deux graphique, de même pour les options -->
     </div>
 </div>
