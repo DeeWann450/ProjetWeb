@@ -9,16 +9,18 @@
             <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" routerLink="/contact">Contact</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="#">Aide</a>
          </li>
      </ul>
       <form class="form-inline" [formGroup]="searchForm">
-         <small id="helpYear" class="text-muted" *ngIf="searchForm.get('inputYear').errors.min || searchForm.get('inputYear').errors.max">
-            Année entre 1986 et 2019 &nbsp;&nbsp;   
-         </small>
+         <div *ngIf="searchForm.get('inputYear').invalid && (searchForm.get('inputYear').dirty || searchForm.get('inputYear').touched)">
+            <small id="helpYear" class="text-muted" *ngIf="searchForm.get('inputYear').errors.min || searchForm.get('inputYear').errors.max">
+               Année entre 1986 et 2019 &nbsp;&nbsp;   
+            </small>
+         </div>
          <input class="form-control mr-sm-2" placeholder="Année" #inputYear id="inputYear" formControlName="inputYear" >
          <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="onClickMe(inputYear.value)" routerLink="/birth-rennes">Search</button>
       </form>
