@@ -7,7 +7,9 @@ import { ContactComponent } from './contact/contact.component';
 import { HelpComponent } from './help/help.component'
 import { DataTableComponent } from './data-table/data-table.component';
 
+// Ici on définie nos routes
 const routes: Routes = [
+  // bar-chart : route par défaut, page d'accueil
   { path: '',   redirectTo: '/bar-chart', pathMatch: 'full' },
   { path: 'birth-rennes', component: BirthRennesComponent},
   { path: 'bar-chart', component: MyBarChartComponent},

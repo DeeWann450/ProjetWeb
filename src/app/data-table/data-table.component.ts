@@ -10,15 +10,16 @@ export class DataTableComponent implements OnInit {
 
   births;
 
-  total;
-
   private apiURL = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=naissances-a-rennes&q=&rows=37&sort=-annee'
 
+  /**
+   * Constructeur de la table de données
+   * @param http Va permettre de faire la requ^te à l'API
+   */
   constructor(private http: HttpClient) { 
+    // On récupère le JSON
     this.http.get(this.apiURL).toPromise().then(data => {
-      console.log(data);
       this.births = data;
-      this.total = parseInt(this.births.records[0].fields.garcons) + parseInt(this.births.records[0].fields.filles) 
     })
   }
 

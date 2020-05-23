@@ -1,5 +1,7 @@
+<!-- Si births existe, ie si on a récuperer les données et donc que l'utilisateur à lancer une recherche-->
 <div *ngIf="births" class="rows">
    <button class="close" type="button" routerLink="" aria-label="Close">X</button>
+   <!-- Pour chaque données-->
    <div *ngFor="let n of births.records">
       <table class="table table-hover">
          <thead>
