@@ -1,27 +1,49 @@
 # ProjetWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+Ce projet a été développé avec [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
-## Development server
+## Installation des outils nécessaires
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Node.js
 
-## Code scaffolding
+Il vous faut tout d'abord installer la dernière version LTS de Node.js ici : https://nodejs.org/en/download/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### NPM
 
-## Build
+NPM est un gestionnaire de paquet qui va nous permettre d'installer énorméments d'outils et de librairie facilement. Pour l'installer, il vous suffit simplement de lancer : 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+npm install -g npm@latest
+```
+(Avec cmd pour windows, et le Terminal de votre choix pour Linux et Mac, si vous avez des soucis de permission : https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+### Angular/CLI
 
-## Running unit tests
+Pour installer le CLI d'Angular, il vous suffit simplement de lancer la commande suivante : 
+```
+npm install -g @angular/cli
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation du projet
 
-## Running end-to-end tests
+Vous pouvez cloner le projet directement via GitHub (installez Git d'abord) :
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+git clone https://github.com/DeeWann450/ProjetWeb.git
+```
 
-## Further help
+Sinon tout le code sera disponible dans l'archive du projet. Des dossiers spécifiques sont placés dans le .gitignore donc il est possible qu'il y ait une différence entre les deux dossiers.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Vous pouvez ensuite vous déplacer dans le dossier via : 
+```
+cd ProjetWeb/
+```
+Une fois dans le dossier, vous pouvez lancer la commande `npm install`
+
+Pour lancer un serveur en localhost, vous pouvez utiliser la commande suivante : 
+
+```
+ng serve --open
+```
+## Plus d'aide
+
+Pour avoir plus d'informations : `ng help` ou directement sur le GitHub d'Angular :  [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
