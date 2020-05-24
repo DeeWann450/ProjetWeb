@@ -17,7 +17,7 @@
          <li class="nav-item">
             <a class="nav-link" routerLink="/help">Aide</a>
          </li>
-     </ul>
+      </ul>
       <form class="form-inline" [formGroup]="searchForm">
          <div *ngIf="searchForm.get('inputYear').invalid && (searchForm.get('inputYear').dirty || searchForm.get('inputYear').touched)">
             <small id="helpYear" class="text-light" *ngIf="searchForm.get('inputYear').errors.min || searchForm.get('inputYear').errors.max">
