@@ -37,7 +37,7 @@ Vous pouvez ensuite vous déplacer dans le dossier via :
 ```
 cd ProjetWeb/
 ```
-Une fois dans le dossier, vous pouvez lancer la commande `npm install`
+Une fois dans le dossier, vous pouvez lancer la commande `npm update`
 
 Pour lancer un serveur en localhost, vous pouvez utiliser la commande suivante : 
 
